@@ -184,3 +184,22 @@ then browse to
 
 http://localhost/prj2/public
 
+after adding controller Hello, browse to 
+
+http://localhost:8080/europa/public/en/hello
+
+
+# full working set of commands to get a running application
+
+$ symfony new prj1 --demo --no-git
+$ chmod -R 777 prj1
+$ cd prj1/
+$ php bin/console about
+$ php bin/console debug:container
+$ php bin/console debug:container Controller
+$ php bin/console debug:router 
+$ composer require annotations
+$ composer require twig
+$ composer require doctrine/annotations
+$ php bin/console debug:router
+
