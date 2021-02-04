@@ -138,6 +138,7 @@ $ php bin/console router
 
 
 $ php bin/console debug:route
+$ php bin/console debug:router
 
 ### web debug toolbar for symfony
 
@@ -145,4 +146,29 @@ $ composer require symfony/profiler-pack
 
 $ composer require twig
 
+### All
+
+$ composer require symfony/web-profiler-bundle
+
+$ composer require symfony/maker-bundle
+
+$ symfony console list make
+
+$ php bin/console debug:container
+
+$ php bin/console debug:container --types
+
+to search for a specific service - 'Hello' service
+$ php bin/console debug:container Hello
+
+
+to show all controllers
+$ php bin/console debug:container Controller
+
+
+list of all php versions on the machine
+$ symfony local:php:list
+
+tradition web application
+$ symfony new prj1 --full --no-git
 
