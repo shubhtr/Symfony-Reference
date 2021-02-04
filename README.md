@@ -172,3 +172,15 @@ $ symfony local:php:list
 tradition web application
 $ symfony new prj1 --full --no-git
 
+$ php bin/console about
+
+$ composer install
+
+# the best way to create a functioning project - with the debug toolbars and everything working
+
+$ symfony new prj1 --demo --no-git
+
+then browse to 
+
+http://localhost/prj2/public
+
