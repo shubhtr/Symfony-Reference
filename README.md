@@ -42,6 +42,30 @@ Directory | Description |
 .env        |   &nbsp;
 .gitignore  |   &nbsp;
 
+# proc_open(): fork failed errors
+
+If composer shows proc_open() fork failed on some commands:
+
+PHP Fatal error: Uncaught exception 'ErrorException' with message 'proc_open(): fork failed - Cannot allocate memory' in phar
+
+This could be happening because the VPS runs out of memory and has no Swap space enabled.
+
+    free -m
+
+    total used free shared buffers cached
+    Mem: 2048 357 1690 0 0 237
+    -/+ buffers/cache: 119 1928
+    Swap: 0 0 0
+
+To enable the swap you can use for example:
+
+    /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+    /sbin/mkswap /var/swap.1
+    /bin/chmod 0600 /var/swap.1
+    /sbin/swapon /var/swap.1
+
+You can make a permanent swap file following this tutorial.
+
 # Components
 
 ## Installation
@@ -188,6 +212,11 @@ after adding controller Hello, browse to
 
 http://localhost:8080/europa/public/en/hello
 
+# symfony recommendations
+
+<ul>
+
+</ul>
 
 # full working set of commands to get a running application
 
@@ -202,4 +231,41 @@ $ composer require annotations
 $ composer require twig
 $ composer require doctrine/annotations
 $ php bin/console debug:router
+
+# composer show all installed packages
+browse to the project directory - that has composer.json
+then
+
+$ composer show -i
+
+# routing
+
+App receives request -> calls a `Controller action` to generate response
+
+Routing configuration 
+- which action to run for each incoming URL
+- other useful features - like generating SEO-friendly URLs
+
+## create routes
+
+Routes can be configured in:
+- YAML
+- XML
+- PHP 
+- attributes
+- annotations
+
+All formats provide the same features and performance.
+
+<ins>Symfony Recommendation</ins>: attributes
+because it's convenient to put the route and controller in the same place.
+
+
+
+# References
+
+* https://getcomposer.org/doc/
+
+
+
 
