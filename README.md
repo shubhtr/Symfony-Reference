@@ -261,6 +261,13 @@ All formats provide the same features and performance.
 because it's convenient to put the route and controller in the same place.
 
 
+## misc
+
+below show run on cli - grep with known text on the page
+
+    $ curl localhost/prj2/public/en/hello
+
+$ php bin/console make:controller MyappController
 
 # References
 
